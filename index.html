@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <body>
-    <span>Total Clicks : 0</span>
-    <button id="btn">Click me</button>
+    <div id="root"></div>
 </body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<!--react는 어플리케이션이 상호작용할 수 있도록 만들어주는 library, react-dom은 react element들을 HTML bOdy에 둘 수 있도록 해주는 library이다.-->
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<!--react를 쓰기 위해 import를 해온 것이다. -->
 <script>
-    let counter =0;
-    const button = document.getElementById("btn");
-    function handleClick(){
-        counter = counter +1
-    }
-    button.addEventListener("clcik", handleClick)
+    const root = document.getElementById("root")
+    const span = React.createElement("span", {id: "holy-span"}, "Hello I'm span")
+    //span을 생성한 것이다. : 형식은 : (tagname, {id-name ... style도 있고}, tag의-내용)
+    ReactDom.render(span, root)
+    //render : react element를 가지고 HTML로 만들어서 배치한다는 의미이다.
 </script>
 </html>
+
+<!-- 정리하자면 : JS를 사용해서 element를 생성하였고 react js가 이를 HTML로 변환한 것이다.-->
